@@ -25,9 +25,9 @@ export class HeroesComponent implements OnInit {
 	//  this.selectedHero = hero;
   // }
 
-  getHeroesSynch(): void {
-    this.heroes = this.heroService.getHeroesSynch();
-  }
+  // getHeroesSynch(): void {
+  //   this.heroes = this.heroService.getHeroesSynch();
+  // }
 
   getHeroes(): void {
     this.heroService.getHeroes()

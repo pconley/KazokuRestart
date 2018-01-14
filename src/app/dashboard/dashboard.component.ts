@@ -18,8 +18,6 @@ export class DashboardComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroes()
-      // TODO: the splice not working in a true asynch model
-      //.subscribe(heroes => this.heroes = heroes.slice(1, 5));
-      .subscribe(heroes => this.heroes = heroes);
+      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
   }
 }

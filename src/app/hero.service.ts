@@ -1,51 +1,74 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
 
 import { MessageService } from './message.service';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};  
+
 @Injectable()
 export class HeroService {
 
-  list: Hero[] = [];
+  private list: Hero[] = [];
+  private heroesUrl = 'http://localhost:3000/heros';
 
-  constructor(private messageService: MessageService) { }
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService) { }
+
+  private log(message: string) {
+    console.log(`*** HeroService: ${message}`)
+    // a local log utility
+    this.messageService.add('HeroService: ' + message);
+  }
 
   getHeroesSynch(): Hero[] {
     return HEROES;
   }
 
   getHero(id: number): Observable<Hero> {
-    // Todo: send the message _after_ fetching the hero
-    this.messageService.add(`HeroService: fetched hero id=${id}`);
-    return of(HEROES.find(hero => hero.id === id));
+    const url = `${this.heroesUrl}/${id}`;
+    this.log(`fetching heroes. url = ${url}`);
+    return this.http.get<Hero>(url).pipe(
+      tap(hero => this.log(`fetched hero. name = ${hero.name}`)),
+      catchError(this.handleError<Hero>(`getHero id=${id}`))
+    );
   }
 
-  getHeroes(): Observable<Hero[]> {
+  getHeroes (): Observable<Hero[]> {
+    this.log(`fetching heroes`);
 
-    if( this.list.length > 0 ){
-      // only "fetch" if the list has not already been fetched
-       this.messageService.add('HeroService: already started');
-    } else {
-    	this.messageService.add('HeroService: start fetching');
+    return this.http.get<Hero[]>(this.heroesUrl)
+      .pipe(
+        tap(heros => this.log(`fetched ${heros.length} heroes`)),
+        catchError(this.handleError('getHeroes', []))
+      )
+  }
 
-  	  var i = 0;
-      var list = this.list;
-      var ms = this.messageService;
-  	  var interval = setInterval(function(){ adder() }, 1000);
-  	  function adder() {
-      	list.push(HEROES[i++]);
-      	if( i >= HEROES.length ) {
-      		clearInterval(interval);
-      		ms.add('HeroService: finished fetching');
-      	}
-      }
-  	}
-  	return of(this.list);
+  updateHero (hero: Hero): Observable<any> {
+    return this.http.put(this.heroesUrl, hero, httpOptions).pipe(
+      tap(_ => this.log(`updated hero id=${hero.id}`)),
+      catchError(this.handleError<any>('updateHero'))
+    );
+  }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      // TODO: send the error to remote logging infrastructure
+      // console.error(error); // log to console instead
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
   }
 
 }
