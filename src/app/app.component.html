@@ -2,7 +2,21 @@
 
 <h1>{{title}}</h1>
 <nav>
-  <a routerLink="/heroes">Heroes</a>
-  <a routerLink="/dashboard">Dashboard</a>
+  <a *ngIf="auth.isAuthenticated()" routerLink="/heroes">Heroes</a>
+  <a *ngIf="auth.isAuthenticated()" routerLink="/dashboard">Dashboard</a>
+  <button
+        id="qsLoginBtn"
+        class="btn btn-primary btn-margin"
+        *ngIf="!auth.isAuthenticated()"
+        (click)="auth.login()">     
+  Log In</button>
+
+  <button
+        id="qsLogoutBtn"
+        class="btn btn-primary btn-margin"
+        *ngIf="auth.isAuthenticated()"
+        (click)="auth.logout()">
+  Log Out</button>
 </nav>
+
 <router-outlet></router-outlet>
