@@ -7,19 +7,23 @@ import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
 import { DashboardComponent }   from './dashboard/dashboard.component';
 import { CallbackComponent }    from './callback/callback.component';
 
+import { AuthGuard }  from "./guards/auth.guard"
+import { UserGuard }  from "./guards/user.guard"
+import { AdminGuard } from "./guards/admin.guard"
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home',       component: HomeComponent },
   { path: 'callback',   component: CallbackComponent },
-  { path: 'heroes',     component: HeroesComponent },
-  { path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'dashboard',  component: DashboardComponent }
+  { path: 'heroes',     component: HeroesComponent, canActivate: [AuthGuard] },
+  { path: 'detail/:id', component: HeroDetailComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard',  component: DashboardComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  exports: [ RouterModule ],
+  providers: [ AuthGuard, UserGuard, AdminGuard ]
 })
 
 export class AppRoutingModule {}
