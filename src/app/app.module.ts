@@ -11,8 +11,8 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-import { HeroService } from './hero.service';
-import { MessageService } from './message.service';
+import { HeroService } from './services/hero.service';
+import { MessageService } from './services/message.service';
 import { AppRoutingModule } from './app-routing.module';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 

@@ -11,7 +11,7 @@ import { CallbackComponent }    from './callback/callback.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home',       component: HomeComponent },
-  { path: 'callback',   component: CallbackComponent }
+  { path: 'callback',   component: CallbackComponent },
   { path: 'heroes',     component: HeroesComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'dashboard',  component: DashboardComponent }

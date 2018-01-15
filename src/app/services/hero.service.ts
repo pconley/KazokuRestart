@@ -5,8 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
+import { Hero } from '../models/hero';
 
 import { MessageService } from './message.service';
 
@@ -28,10 +27,6 @@ export class HeroService {
     console.log(`*** HeroService: ${message}`)
     // a local log utility
     this.messageService.add('HeroService: ' + message);
-  }
-
-  getHeroesSynch(): Hero[] {
-    return HEROES;
   }
 
   getHero(id: number): Observable<Hero> {
