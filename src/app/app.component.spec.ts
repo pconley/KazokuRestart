@@ -52,11 +52,3 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('h1').textContent).toContain('Kazoku Client Restart');
   }));
 });
-
-
-// beforeEach(() => {
-//   fixture = TestBed.createComponent(MyComponent);
-//   component = fixture.componentInstance;
-//   component.title = 'Hello there!' // <-- this is required!
-//   fixture.detectChanges();
-// });
