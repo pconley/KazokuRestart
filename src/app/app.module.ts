@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MessagesComponent } from './messages/messages.component';
 
 import { HeroService } from './services/hero.service';
 import { MessageService } from './services/message.service';
@@ -27,6 +28,7 @@ import { CallbackComponent } from './callback/callback.component';
     HomeComponent,
     HeroesComponent,
     HeroDetailComponent,
+    MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
     CallbackComponent
