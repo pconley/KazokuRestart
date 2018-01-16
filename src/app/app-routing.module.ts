@@ -14,7 +14,7 @@ import { AdminGuard } from "./guards/admin.guard"
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home',       component: HomeComponent },
-  { path: 'callback',   component: CallbackComponent },
+  { path: 'callback',   component: CallbackComponent }, // for auth0
   { path: 'heroes',     component: HeroesComponent, canActivate: [AuthGuard] },
   { path: 'detail/:id', component: HeroDetailComponent, canActivate: [AuthGuard] },
   { path: 'dashboard',  component: DashboardComponent, canActivate: [AuthGuard] }
