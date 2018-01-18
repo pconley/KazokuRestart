@@ -44,7 +44,7 @@ describe('HeroDetailComponent', () => {
   });
 
   it('should create', () => {
-    console.log(component);
+    //console.log(component);
     expect(component).toBeTruthy();
   });
 });

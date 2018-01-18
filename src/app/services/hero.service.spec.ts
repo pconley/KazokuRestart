@@ -21,5 +21,10 @@ describe('HeroService', () => {
   it('should be created', inject([HeroService], (service: HeroService) => {
     expect(service).toBeTruthy();
   }));
+
+  // it('should have get', inject([HeroService], (service: HeroService) => {
+  //   expect(service.getHeroes).toBeTruthy();
+  // }));
+
 });
 

@@ -16,7 +16,7 @@ export class HeroServiceStub {
   constructor() { }
 
   getHero(id: number): Observable<Hero> {
-    console.log(`stub: get hero: id = ${id}`);
+    //console.log(`stub: get hero: id = ${id}`);
     let h: Hero = new Hero();
     h.id = id;
     h.name = "StubHero";
@@ -24,7 +24,7 @@ export class HeroServiceStub {
   }
 
   getHeroes (): Observable<Hero[]> {
-    console.log(`stub: getHeroes heroes`);
+    //console.log(`stub: getHeroes heroes`);
     return of(this.heros);
   }
 
