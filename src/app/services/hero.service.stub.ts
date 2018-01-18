@@ -1,22 +1,9 @@
-// var heroServiceStub = {
-//   getHero(id: number): Observable<Hero> {
-//     console.log(`get hero stub. id = ${id}`);
-//     let h: Hero = new Hero();
-//     h.id = 99;
-//     h.name = "devman";
-//     return of(h);
-//   }
-// };
-
-
 import { Injectable } from '@angular/core';
-
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Hero } from '../models/hero';
-
 
 @Injectable()
 export class HeroServiceStub {
@@ -29,31 +16,17 @@ export class HeroServiceStub {
   constructor() { }
 
   getHero(id: number): Observable<Hero> {
-    console.log(`get hero stub. id = ${id}`);
+    console.log(`stub: get hero: id = ${id}`);
     let h: Hero = new Hero();
     h.id = id;
-    h.name = "devman";
+    h.name = "StubHero";
     return of(h);
   }
 
-  // getHero(id: number): Observable<Hero> {
-  //   const url = `${this.heroesUrl}/${id}`;
-  //   this.log(`fetching heroes. url = ${url}`);
-  //   return this.http.get<Hero>(url).pipe(
-  //     tap(hero => this.log(`fetched hero. name = ${hero.name}`)),
-  //     catchError(this.handleError<Hero>(`getHero id=${id}`))
-  //   );
-  // }
-
-  // getHeroes (): Observable<Hero[]> {
-  //   this.log(`fetching heroes`);
-
-  //   return this.http.get<Hero[]>(this.heroesUrl)
-  //     .pipe(
-  //       tap(heros => this.log(`fetched ${heros.length} heroes`)),
-  //       catchError(this.handleError('getHeroes', []))
-  //     )
-  // }
+  getHeroes (): Observable<Hero[]> {
+    console.log(`stub: getHeroes heroes`);
+    return of(this.heros);
+  }
 
   // updateHero (hero: Hero): Observable<any> {
   //   return this.http.put(this.heroesUrl, hero, httpOptions).pipe(
