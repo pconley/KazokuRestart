@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('heroes App', () => {
+describe('Kazoku Restart', () => {
   let page: AppPage;
 
   beforeEach(() => {
@@ -9,6 +9,6 @@ describe('heroes App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('Kazoku Client Restart');
   });
 });
