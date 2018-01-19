@@ -17,6 +17,7 @@ const httpOptions = {
 export class HeroService {
 
   private list: Hero[] = [];
+  readonly HEROES_URL = 'http://localhost:3000/heros'; 
   private heroesUrl = 'http://localhost:3000/heros';
 
   constructor(
@@ -72,8 +73,9 @@ export class HeroService {
     );
   }
 
-  searchHeroes(term: string): Observable<Hero[]> {
+  searchHeroes(term: string = ""): Observable<Hero[]> {
     if (!term.trim()) {
+      console.log("--- no term");
       // if no search term, return empty hero array.
       return of([]);
     }
