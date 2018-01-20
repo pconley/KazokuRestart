@@ -3,8 +3,8 @@
 <nav>
   <a routerLink="/home">Home</a>
   <a *ngIf="!auth.isLoggedIn()" routerLink="/login">Login</a>
-  <a *ngIf="auth.isLoggedIn()" routerLink="/heroes">Heroes</a>
-  <a *ngIf="auth.isLoggedIn()" routerLink="/dashboard">Hero Dash</a>
+  <a *ngIf="auth.isLoggedIn()" routerLink="/herolist">Heroes</a>
+  <a *ngIf="auth.isLoggedIn()" routerLink="/herodash">Hero Dash</a>
   <a *ngIf="auth.isLoggedIn()" routerLink="/members">Members</a>
   <button
         id="qsLogoutBtn"

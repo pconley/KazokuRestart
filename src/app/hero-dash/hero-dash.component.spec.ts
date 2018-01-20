@@ -14,9 +14,9 @@ import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { HeroSearchComponent } from '../hero-search/hero-search.component';
 import { DashboardComponent  } from './dashboard.component';
 
-describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+describe('HeroDashComponent', () => {
+  let component: HeroDashComponent;
+  let fixture: ComponentFixture<HeroDashComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
