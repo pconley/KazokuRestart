@@ -1,22 +1,19 @@
-<app-messages></app-messages>
-
 <h1>{{title}}</h1>
-<nav>
-  <a *ngIf="auth.isAuthenticated()" routerLink="/heroes">Heroes</a>
-  <a *ngIf="auth.isAuthenticated()" routerLink="/dashboard">Dashboard</a>
-  <button
-        id="qsLoginBtn"
-        class="btn btn-primary btn-margin"
-        *ngIf="!auth.isAuthenticated()"
-        (click)="auth.login()">     
-  Log In</button>
 
+<nav>
+  <a routerLink="/home">Home</a>
+  <a *ngIf="!auth.isLoggedIn()" routerLink="/login">Login</a>
+  <a *ngIf="auth.isLoggedIn()" routerLink="/heroes">Heroes</a>
+  <a *ngIf="auth.isLoggedIn()" routerLink="/dashboard">Hero Dash</a>
+  <a *ngIf="auth.isLoggedIn()" routerLink="/members">Members</a>
   <button
         id="qsLogoutBtn"
         class="btn btn-primary btn-margin"
-        *ngIf="auth.isAuthenticated()"
+        *ngIf="auth.isLoggedIn()"
         (click)="auth.logout()">
   Log Out</button>
 </nav>
 
 <router-outlet></router-outlet>
+
+<app-messages></app-messages>

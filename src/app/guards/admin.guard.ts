@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '../services/auth.service';
 
 @Injectable()
 export class AdminGuard implements CanActivate {
@@ -11,7 +11,7 @@ export class AdminGuard implements CanActivate {
   canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot ) {
     //let url: string = state.url;
     //console.log("AdminGuard. url="+url);
-    if( !this.authService.isAuthenticated ){
+    if( !this.authService.isLoggedIn() ){
         //console.log("AdminGuard. cannot activate because not authenticated");
         return false; // deny access to the route
     }

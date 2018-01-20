@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { AuthService } from './auth/auth.service';
+
+// import { AngularFirestore } from 'angularfire2/firestore';
+// import { Observable } from 'rxjs/Observable';
+
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +11,17 @@ import { AuthService } from './auth/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  //members: Observable<any[]>;
   title = 'Kazoku Client Restart';
-  constructor(public auth: AuthService) {
-    auth.handleAuthentication();
+  constructor(
+  	public auth: AuthService,
+  	// public db: AngularFirestore
+  ){
+    //auth.handleAuthentication();
+
+    //this.members = db.collection('members').valueChanges();
+
   }
 
 }
+
