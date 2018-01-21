@@ -1,18 +1,27 @@
-<h1>{{title}}</h1>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span routerLink="/home">Kazoku</span>
+    <span *ngIf="auth.isLoggedIn()">
+      <button mat-button routerLink="/herolist">Heroes</button>
+      <button mat-button routerLink="/herodash">Hero Dash</button>
+      <button mat-button routerLink="/members">Members</button>
+    </span>
+    <span class="example-fill-remaining-space"></span>
+    <a mat-button *ngIf="!auth.isLoggedIn()" routerLink="/login">Login</a>
+    <button mat-button
+      id="kzLogoutBtn"
+      *ngIf="auth.isLoggedIn()"
+      (click)="auth.logout()">
+      Log Out</button>
+      <mat-icon class="example-icon">favorite</mat-icon>
+      <mat-icon class="example-icon">delete</mat-icon>
+  </mat-toolbar-row>
 
-<nav>
-  <a routerLink="/home">Home</a>
-  <a *ngIf="!auth.isLoggedIn()" routerLink="/login">Login</a>
-  <a *ngIf="auth.isLoggedIn()" routerLink="/herolist">Heroes</a>
-  <a *ngIf="auth.isLoggedIn()" routerLink="/herodash">Hero Dash</a>
-  <a *ngIf="auth.isLoggedIn()" routerLink="/members">Members</a>
-  <button
-        id="qsLogoutBtn"
-        class="btn btn-primary btn-margin"
-        *ngIf="auth.isLoggedIn()"
-        (click)="auth.logout()">
-  Log Out</button>
-</nav>
+<!--   <mat-toolbar-row>
+    <span>Second Row</span>
+  </mat-toolbar-row>
+ -->  
+</mat-toolbar>
 
 <router-outlet></router-outlet>
 

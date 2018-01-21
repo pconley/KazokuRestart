@@ -29,6 +29,8 @@ import { MessagesComponent   } from './messages/messages.component';
 
 import { MemberListComponent } from './member-list/member-list.component'; // ?????
 
+import { AppDesignModule } from './app-design.module'; // material design modules
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,13 +45,16 @@ import { MemberListComponent } from './member-list/member-list.component'; // ??
   ],
   imports: [
     BrowserModule,
+    AppDesignModule,
     FormsModule, 
     HttpClientModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    //BrowserAnimationsModule,              // <-- needed for material
+    //MatButtonModule, MatCheckboxModule    // <-- needed for material
   ],
   providers: [ AuthService, HeroService, MessageService ],
   bootstrap: [ AppComponent ],

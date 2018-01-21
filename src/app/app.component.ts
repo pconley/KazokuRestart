@@ -12,7 +12,7 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   //members: Observable<any[]>;
-  title = 'Kazoku Client Restart';
+  title = 'Kazoku Restart';
   constructor(
   	public auth: AuthService,
   	// public db: AngularFirestore
