@@ -29,6 +29,8 @@ import { MessagesComponent   } from './messages/messages.component';
 
 import { MemberListComponent } from './member-list/member-list.component'; // ?????
 
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +51,8 @@ import { MemberListComponent } from './member-list/member-list.component'; // ??
     AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFontAwesomeModule
   ],
   providers: [ AuthService, HeroService, MessageService ],
   bootstrap: [ AppComponent ],
