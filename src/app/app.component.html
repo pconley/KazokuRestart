@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="fixed-header" color="primary">
   <mat-toolbar-row>
     <span routerLink="/home">家族 Kazoku</span>&nbsp;&nbsp;&nbsp;
     <span *ngIf="auth.isLoggedIn()">
@@ -6,7 +6,7 @@
       <button mat-button routerLink="/herodash"><fa name="th" ></fa>Hero Dash</button>
       <button mat-button routerLink="/members"><fa name="users" ></fa>Members</button>
     </span>
-    <span class="example-fill-remaining-space"></span>
+    <span class="fill-remaining-space"></span>
     <a mat-button *ngIf="!auth.isLoggedIn()" routerLink="/login">
       <fa name="sign-in" ></fa>Login</a>
     <button mat-button
@@ -22,8 +22,10 @@
  -->  
 </mat-toolbar>
 
-<mat-drawer-container class="side-drawer">
-  <mat-drawer mode="side" opened="true">Drawer content</mat-drawer>
+<mat-drawer-container class="side-drawer under-header">
+  <mat-drawer mode="side" opened="true"  class="under-header">
+    Sidebar Content
+  </mat-drawer>
   <mat-drawer-content>
     <router-outlet></router-outlet>
     <app-messages></app-messages>
@@ -31,3 +33,4 @@
 </mat-drawer-container>
 
 
+<mat-toolbar color="primary">Footer</mat-toolbar>
