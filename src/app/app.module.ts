@@ -15,6 +15,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import * as firebase from 'firebase/app';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -53,8 +55,7 @@ import { AppDesignModule } from './app-design.module'; // material design module
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
-    //BrowserAnimationsModule,              // <-- needed for material
-    //MatButtonModule, MatCheckboxModule    // <-- needed for material
+    AngularFontAwesomeModule
   ],
   providers: [ AuthService, HeroService, MessageService ],
   bootstrap: [ AppComponent ],

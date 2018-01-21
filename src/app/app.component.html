@@ -1,20 +1,19 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span routerLink="/home">Kazoku</span>
+    <span routerLink="/home">家族 Kazoku</span>&nbsp;&nbsp;&nbsp;
     <span *ngIf="auth.isLoggedIn()">
-      <button mat-button routerLink="/herolist">Heroes</button>
-      <button mat-button routerLink="/herodash">Hero Dash</button>
-      <button mat-button routerLink="/members">Members</button>
+      <button mat-button routerLink="/herolist"><fa name="shield" ></fa>Heroes</button>
+      <button mat-button routerLink="/herodash"><fa name="th" ></fa>Hero Dash</button>
+      <button mat-button routerLink="/members"><fa name="users" ></fa>Members</button>
     </span>
     <span class="example-fill-remaining-space"></span>
-    <a mat-button *ngIf="!auth.isLoggedIn()" routerLink="/login">Login</a>
+    <a mat-button *ngIf="!auth.isLoggedIn()" routerLink="/login">
+      <fa name="sign-in" ></fa>Login</a>
     <button mat-button
       id="kzLogoutBtn"
       *ngIf="auth.isLoggedIn()"
       (click)="auth.logout()">
-      Log Out</button>
-      <mat-icon class="example-icon">favorite</mat-icon>
-      <mat-icon class="example-icon">delete</mat-icon>
+      <fa name="sign-out" ></fa>Log Out</button>
   </mat-toolbar-row>
 
 <!--   <mat-toolbar-row>
@@ -23,6 +22,12 @@
  -->  
 </mat-toolbar>
 
-<router-outlet></router-outlet>
+<mat-drawer-container class="side-drawer">
+  <mat-drawer mode="side" opened="true">Drawer content</mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+    <app-messages></app-messages>
+  </mat-drawer-content>
+</mat-drawer-container>
 
-<app-messages></app-messages>
+
