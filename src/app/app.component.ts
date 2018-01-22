@@ -13,6 +13,11 @@ import { AuthService } from './services/auth.service';
 export class AppComponent {
   //members: Observable<any[]>;
   title = 'Kazoku Client Restart';
+
+  // TODO: move navbar to its own component
+
+  isCollapsed = true; // navbar
+
   constructor(
   	public auth: AuthService,
   	// public db: AngularFirestore
@@ -23,5 +28,10 @@ export class AppComponent {
 
   }
 
-}
 
+  toggleMenu() {
+    this.isCollapsed = !this.isCollapsed;
+  }
+
+
+}

@@ -1,19 +1,32 @@
-<h1>{{title}}</h1>
-
-<nav>
-  <a routerLink="/home">Home</a>
-  <a *ngIf="!auth.isLoggedIn()" routerLink="/login">Login</a>
-  <a *ngIf="auth.isLoggedIn()" routerLink="/herolist">Heroes</a>
-  <a *ngIf="auth.isLoggedIn()" routerLink="/herodash">Hero Dash</a>
-  <a *ngIf="auth.isLoggedIn()" routerLink="/members">Members</a>
-  <button
-        id="qsLogoutBtn"
-        class="btn btn-primary btn-margin"
-        *ngIf="auth.isLoggedIn()"
-        (click)="auth.logout()">
-  Log Out</button>
-  <fa name="cog" animation="spin"></fa>
+<nav class="navbar navbar-toggleable-md navbar-light">
+  <button class="navbar-toggler navbar-toggler-right" type="button" (click)="toggleMenu()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" routerLink="/home">Kazoku Restart</a>
+  <div class="collapse navbar-collapse" id="appNavigation" [ngbCollapse]="isCollapsed">
+    <div class="navbar-nav mr-auto">
+      <!-- ABOUT -->
+      <a class="nav-item nav-link" routerLink="/about" routerLinkActive="active">About</a>
+      <!-- MEMBERS -->
+      <a class="nav-item nav-link" *ngIf="auth.isLoggedIn()" routerLink="/members" routerLinkActive="active">Members</a>
+      <!-- HEROS -->
+      <div class="nav-item dropdown" ngbDropdown *ngIf="auth.isLoggedIn()">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" ngbDropdownToggle>Heros</a>
+        <div class="dropdown-menu">
+          <button class="dropdown-item" routerLink="/herolist">List</button>
+          <button class="dropdown-item" routerLink="/herodash">Dashboard</button>
+        </div>
+      </div>
+      <!-- LOG IN/OUT -->
+      <a class="nav-item nav-link" *ngIf="!auth.isLoggedIn()" routerLink="/login">Login</a>
+      <a class="nav-item nav-link" *ngIf="auth.isLoggedIn()" (click)="auth.logout()">Log Out</a>
+      <!-- SETTINGS -->
+      <a class="nav-item nav-link"><fa name="cog" animation="spin"></fa></a>
+    </div>
+  </div>
 </nav>
+
+<!-- class="btn btn-primary btn-margin" -->
 
 <router-outlet></router-outlet>
 

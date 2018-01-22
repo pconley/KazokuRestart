@@ -31,6 +31,8 @@ import { MemberListComponent } from './member-list/member-list.component'; // ??
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
   ],
   imports: [
     BrowserModule,
-    FormsModule, 
+    FormsModule,
+    NgbModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
