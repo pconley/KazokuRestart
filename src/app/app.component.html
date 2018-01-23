@@ -17,11 +17,13 @@
           <button class="dropdown-item" routerLink="/herodash">Dashboard</button>
         </div>
       </div>
-      <!-- LOG IN/OUT -->
-      <a class="nav-item nav-link" *ngIf="!auth.isLoggedIn()" routerLink="/login">Login</a>
-      <a class="nav-item nav-link" *ngIf="auth.isLoggedIn()" (click)="auth.logout()">Log Out</a>
       <!-- SETTINGS -->
-      <a class="nav-item nav-link"><fa name="cog" animation="spin"></fa></a>
+      <a class="nav-item nav-link" routerLink="/settings"><fa name="cog" animation="spin"></fa></a>
+      <a class="nav-item nav-link" routerLink="/messages"><fa name="list" ></fa></a>
+      <!-- LOG IN/OUT -->
+      <a class="nav-item nav-link" *ngIf="auth.isLoggedIn()" (click)="auth.logout()"><fa name="sign-out" ></fa>Log Out</a>
+      <a class="nav-item nav-link" *ngIf="!auth.isLoggedIn()" routerLink="/login"><fa name="sign-in" ></fa>Login</a>
+
     </div>
   </div>
 </nav>
@@ -29,5 +31,3 @@
 <!-- class="btn btn-primary btn-margin" -->
 
 <router-outlet></router-outlet>
-
-<app-messages></app-messages>

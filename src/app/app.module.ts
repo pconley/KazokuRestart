@@ -32,6 +32,8 @@ import { MemberListComponent } from './member-list/member-list.component'; // ??
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { SettingsComponent } from './settings/settings.component';
+import { AboutComponent } from './views/about/about.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     HeroSearchComponent,
     MemberListComponent,
     MessagesComponent,
+    SettingsComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
