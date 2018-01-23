@@ -31,9 +31,11 @@ import { MemberListComponent } from './member-list/member-list.component'; // ??
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SettingsComponent } from './settings/settings.component';
 import { AboutComponent } from './views/about/about.component';
+import { TopbarComponent } from './topbar/topbar.component';
+import { ErrorPageComponent } from './views/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { AboutComponent } from './views/about/about.component';
     MessagesComponent,
     SettingsComponent,
     AboutComponent,
+    TopbarComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,29 @@
+<nav class="navbar navbar-toggleable-md navbar-light">
+  <button class="navbar-toggler navbar-toggler-right" type="button" (click)="toggleMenu()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" routerLink="/home">Kazoku III</a>
+  <div class="collapse navbar-collapse" id="appNavigation" [ngbCollapse]="isCollapsed">
+    <div class="navbar-nav mr-auto">
+      <!-- ABOUT -->
+      <a class="nav-item nav-link" routerLink="/about" routerLinkActive="active">About</a>
+      <!-- MEMBERS -->
+      <a class="nav-item nav-link" *ngIf="auth.isLoggedIn()" routerLink="/members" routerLinkActive="active">Members</a>
+      <!-- HEROS -->
+      <div class="nav-item dropdown" ngbDropdown *ngIf="auth.isLoggedIn()">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" ngbDropdownToggle>Heros</a>
+        <div class="dropdown-menu">
+          <button class="dropdown-item" routerLink="/herolist">List</button>
+          <button class="dropdown-item" routerLink="/herodash">Dashboard</button>
+        </div>
+      </div>
+      <!-- SETTINGS -->
+      <a class="nav-item nav-link" routerLink="/settings"><fa name="cog" animation="spin"></fa></a>
+      <a class="nav-item nav-link" routerLink="/messages"><fa name="list" ></fa></a>
+      <!-- LOG IN/OUT -->
+      <a class="nav-item nav-link" *ngIf="auth.isLoggedIn()" (click)="auth.logout()"><fa name="sign-out" ></fa>Log Out</a>
+      <a class="nav-item nav-link" *ngIf="!auth.isLoggedIn()" routerLink="/login"><fa name="sign-in" ></fa>Login</a>
+
+    </div>
+  </div>
+</nav>
