@@ -36,7 +36,7 @@
 
 		<!-- ICON LINKS -->
 		<a class="nav-item nav-link" routerLink="/settings"><fa name="cog" animation="spin"></fa></a>
-		<a class="nav-item nav-link" routerLink="/messages"><fa name="list" ></fa></a>
+		<app-messages></app-messages> <!-- this is the link AND popup screen (hidden) -->			
 		<a class="nav-item nav-link" routerLink="/about"><fa name="info-circle" ></fa></a>
 
 		<!-- LOG IN and OUT -->
@@ -45,3 +45,19 @@
 
 	</div>
 </nav>
+
+<div class="topbar-spacer">	
+
+	<app-messages #msgctrl></app-messages>
+
+<ng-template #xxx>
+  <div class="modal-header">
+    <h4 class="modal-title">Messages</h4>
+  </div>
+  <div class="modal-body">
+    <div>A body</div>
+  </div>
+</ng-template>
+
+
+</div>

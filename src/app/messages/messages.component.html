@@ -1,5 +1,4 @@
-<h2>Messages</h2>
-	<div *ngIf="messageService.messages.length">
-  		<button class="clear messages" (click)="messageService.clear()">clear</button>
-  	<div *ngFor='let message of messageService.messages'> {{message}} </div>
-</div>
+<!-- note: without "some" href the link does not render properly -->
+<a class="nav-item nav-link" href="javascript:void(0)" (click)="open()" >
+	<fa name="list"></fa>
+</a>

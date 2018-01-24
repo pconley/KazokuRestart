@@ -25,13 +25,14 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { HeroDashComponent   } from './hero-dash/hero-dash.component';
 
-import { MessagesComponent   } from './messages/messages.component';
+import { MessagesContent, MessagesComponent   } from './messages/messages.component';
 
 import { MemberListComponent } from './member-list/member-list.component'; // ?????
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { SettingsComponent } from './settings/settings.component';
 import { AboutComponent } from './views/about/about.component';
 import { TopbarComponent } from './topbar/topbar.component';
@@ -47,12 +48,13 @@ import { ErrorPageComponent } from './views/error-page/error-page.component';
     HeroDashComponent,
     HeroSearchComponent,
     MemberListComponent,
-    MessagesComponent,
+    MessagesContent, MessagesComponent,
     SettingsComponent,
     AboutComponent,
     TopbarComponent,
     ErrorPageComponent,
   ],
+  entryComponents: [MessagesContent],
   imports: [
     BrowserModule,
     FormsModule,
