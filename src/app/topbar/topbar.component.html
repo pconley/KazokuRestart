@@ -38,6 +38,7 @@
 		<a class="nav-item nav-link" routerLink="/settings"><fa name="cog" animation="spin"></fa></a>
 		<app-messages></app-messages> <!-- this is the link AND popup screen (hidden) -->			
 		<a class="nav-item nav-link" routerLink="/about"><fa name="info-circle" ></fa></a>
+		<a class="nav-item nav-link" routerLink="/contact"><fa name="envelope-o" ></fa></a>
 
 		<!-- LOG IN and OUT -->
 		<button class="nav-item nav-link active" *ngIf="auth.isLoggedIn()" (click)="auth.logout()"><fa name="sign-out" ></fa>Log Out</button>

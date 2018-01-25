@@ -11,6 +11,7 @@ import { MemberListComponent }  from './member-list/member-list.component';
 import { SettingsComponent }    from './settings/settings.component';
 import { MessagesComponent }    from './messages/messages.component';
 import { ErrorPageComponent }   from './views/error-page/error-page.component';
+import { ContactComponent   }   from './views/contact/contact.component';
 
 import { AuthGuard }  from "./guards/auth.guard"
 import { UserGuard }  from "./guards/user.guard"
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'hero/:id',   component: HeroDetailComponent, canActivate: [AuthGuard] },
   { path: 'settings',   component: SettingsComponent },
   { path: 'messages',   component: MessagesComponent },
+  { path: 'contact',    component: ContactComponent },
   { path: '**',         component: ErrorPageComponent }
 ];
 

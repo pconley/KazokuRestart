@@ -37,6 +37,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { AboutComponent } from './views/about/about.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { ErrorPageComponent } from './views/error-page/error-page.component';
+import { ContactComponent } from './views/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ErrorPageComponent } from './views/error-page/error-page.component';
     AboutComponent,
     TopbarComponent,
     ErrorPageComponent,
+    ContactComponent,
   ],
   entryComponents: [MessagesContent],
   imports: [
