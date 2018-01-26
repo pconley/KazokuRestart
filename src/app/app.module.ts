@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule } from '@angular/common/http'; 
@@ -39,6 +41,8 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { ErrorPageComponent } from './views/error-page/error-page.component';
 import { ContactComponent } from './views/contact/contact.component';
 
+import {ToasterModule, ToasterService} from 'angular2-toaster';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +58,7 @@ import { ContactComponent } from './views/contact/contact.component';
     AboutComponent,
     TopbarComponent,
     ErrorPageComponent,
-    ContactComponent,
+    ContactComponent
   ],
   entryComponents: [MessagesContent],
   imports: [
@@ -67,9 +71,10 @@ import { ContactComponent } from './views/contact/contact.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    ToasterModule, BrowserAnimationsModule
   ],
-  providers: [ AuthService, HeroService, MessageService ],
+  providers: [ AuthService, HeroService, MessageService, ToasterService ],
   bootstrap: [ AppComponent ],
 })
 

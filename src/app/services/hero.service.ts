@@ -7,6 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Hero } from '../models/hero';
 
+import { ToasterService } from 'angular2-toaster';
 import { MessageService } from './message.service';
 
 const httpOptions = {
@@ -17,22 +18,34 @@ const httpOptions = {
 export class HeroService {
 
   private list: Hero[] = [];
-  readonly HEROES_URL = 'http://localhost:3000/heros'; 
-  private heroesUrl = 'http://localhost:3000/heros';
+  readonly heroesUrl = 'http://localhost:3000/heros';
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+    private toasterService: ToasterService,
+  ) { }
 
   private log(message: string) {
-    console.log(`*** HeroService: ${message}`)
-    // a local log utility
-    this.messageService.add('HeroService: ' + message);
+    const text = `Heroes Service: ${message}`
+    console.log(`*** ${text}`)
+    this.messageService.add(text);
+  }
+  private alert(message: string){
+    this.toast('success', message)
+  }
+  private error(message: string){
+    this.toast('error',message);
+  }
+  private toast(level: string, message: string){
+    this.log(message) // to console and to the message service
+    this.toasterService.pop({type: level, title: 'Heroes Service', body: message })
   }
 
   getHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
-    this.log(`fetching heroes. url = ${url}`);
+    const msg = `fetching hero. url = ${url}`
+    this.toasterService.pop('success', 'Heroes', msg);
     return this.http.get<Hero>(url).pipe(
       tap(hero => this.log(`fetched hero. name = ${hero.name}`)),
       catchError(this.handleError<Hero>(`getHero id=${id}`))
@@ -41,10 +54,9 @@ export class HeroService {
 
   getHeroes (): Observable<Hero[]> {
     this.log(`fetching heroes`);
-
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
-        tap(heros => this.log(`fetched ${heros.length} heroes`)),
+        tap(heros => this.alert(`fetched ${heros.length} heroes`)),
         catchError(this.handleError('getHeroes', []))
       )
   }
@@ -92,6 +104,7 @@ export class HeroService {
       // console.error(error); // log to console instead
       // TODO: better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);
+      this.error(`${operation} failed: ${error.message}`)
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-// import { MessagesComponent } from './messages/messages.component'
+import {ToasterModule, ToasterService} from 'angular2-toaster';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor(){}
+  constructor(
+      public toasterService: ToasterService
+  ){}
+
+    popToast() {
+        this.toasterService.pop('success', 'Args Title', 'Args Body');
+    }
+
 
 }
