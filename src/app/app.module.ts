@@ -1,15 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule } from '@angular/common/http'; 
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { AppRoutingModule } from './app-routing.module';
-
-import { AuthService } from './services/auth.service';
-import { HeroService } from './services/hero.service';
-import { MessageService } from './services/message.service';
+import { ToasterModule, ToasterService} from 'angular2-toaster';
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
@@ -22,18 +19,13 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './views/login/login.component';
 
-import { HeroListComponent   } from './hero-list/hero-list.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
-import { HeroDashComponent   } from './hero-dash/hero-dash.component';
+import { HeroesModule     } from './heroes/heroes.module'
+import { AppRoutingModule } from './app-routing.module';
 
+import { AuthService } from './services/auth.service';
+import { MessageService } from './services/message.service';
 import { MessagesContent, MessagesComponent   } from './messages/messages.component';
-
 import { MemberListComponent } from './member-list/member-list.component'; // ?????
-
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { SettingsComponent } from './settings/settings.component';
 import { AboutComponent } from './views/about/about.component';
@@ -41,17 +33,11 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { ErrorPageComponent } from './views/error-page/error-page.component';
 import { ContactComponent } from './views/contact/contact.component';
 
-import {ToasterModule, ToasterService} from 'angular2-toaster';
-
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    HeroListComponent,
-    HeroDetailComponent,
-    HeroDashComponent,
-    HeroSearchComponent,
     MemberListComponent,
     MessagesContent, MessagesComponent,
     SettingsComponent,
@@ -66,6 +52,7 @@ import {ToasterModule, ToasterService} from 'angular2-toaster';
     FormsModule,
     NgbModule.forRoot(),
     HttpClientModule,
+    HeroesModule, // before AppRouting!!!
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
     AngularFireDatabaseModule,
@@ -74,7 +61,7 @@ import {ToasterModule, ToasterService} from 'angular2-toaster';
     AngularFontAwesomeModule,
     ToasterModule, BrowserAnimationsModule
   ],
-  providers: [ AuthService, HeroService, MessageService, ToasterService ],
+  providers: [ AuthService, MessageService, ToasterService ],
   bootstrap: [ AppComponent ],
 })
 

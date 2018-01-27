@@ -5,10 +5,10 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Hero } from '../models/hero';
+import { Hero        } from '../hero';
 
 import { ToasterService } from 'angular2-toaster';
-import { MessageService } from './message.service';
+import { MessageService } from '../../services/message.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
