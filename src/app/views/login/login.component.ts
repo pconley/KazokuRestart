@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent implements OnInit {
 
   // prepopulate to make it easy for repeated testing
-  user = { email: 'aaa@aaa.aaa', password: 'password' };
+  user = { email: 'bbb@bbb.bbb', password: 'password' };
 
   constructor(private authService: AuthService, private router: Router) {}
 

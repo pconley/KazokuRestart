@@ -12,6 +12,12 @@
 				<a routerLink="/about" class="nav-link" >About</a>
 			</li>
 
+			<li class="nav-item">
+				<a class="nav-link disabled" href="#">
+					{{(auth.profile$ | async).name}}
+				</a>
+			</li>
+
 			<li class="nav-item" [routerLinkActive]="['active']" *ngIf="auth.isLoggedIn()">
 				<a routerLink="/members" class="nav-link" >Members</a>
 			</li>

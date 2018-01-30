@@ -23,7 +23,9 @@ import { HeroesModule     } from './heroes/heroes.module'
 import { AppRoutingModule } from './app-routing.module';
 
 import { AuthService } from './services/auth.service';
+import { ProfileService } from './services/profile.service';
 import { MessageService } from './services/message.service';
+
 import { MessagesContent, MessagesComponent   } from './messages/messages.component';
 import { MemberListComponent } from './member-list/member-list.component'; // ?????
 
@@ -32,6 +34,7 @@ import { AboutComponent } from './views/about/about.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { ErrorPageComponent } from './views/error-page/error-page.component';
 import { ContactComponent } from './views/contact/contact.component';
+import { TestPageComponent } from './views/testpage/testpage.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ import { ContactComponent } from './views/contact/contact.component';
     AboutComponent,
     TopbarComponent,
     ErrorPageComponent,
-    ContactComponent
+    ContactComponent,
+    TestPageComponent
   ],
   entryComponents: [MessagesContent],
   imports: [
@@ -61,7 +65,7 @@ import { ContactComponent } from './views/contact/contact.component';
     AngularFontAwesomeModule,
     ToasterModule, BrowserAnimationsModule
   ],
-  providers: [ AuthService, MessageService, ToasterService ],
+  providers: [ AuthService, ProfileService, MessageService, ToasterService ],
   bootstrap: [ AppComponent ],
 })
 

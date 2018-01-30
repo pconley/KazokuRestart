@@ -4,12 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent }        from './home/home.component';
 import { AboutComponent }       from './views/about/about.component';
 import { LoginComponent }       from './views/login/login.component';
-// import { HeroListComponent }    from './hero-list/hero-list.component';
-// import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
-// import { HeroDashComponent }    from './hero-dash/hero-dash.component';
 import { MemberListComponent }  from './member-list/member-list.component';
 import { SettingsComponent }    from './settings/settings.component';
 import { MessagesComponent }    from './messages/messages.component';
+import { TestPageComponent  }   from './views/testpage/testpage.component';
 import { ErrorPageComponent }   from './views/error-page/error-page.component';
 import { ContactComponent   }   from './views/contact/contact.component';
 
@@ -22,10 +20,8 @@ const routes: Routes = [
   { path: 'home',       component: HomeComponent },
   { path: 'about',      component: AboutComponent },
   { path: 'login',      component: LoginComponent },
+  { path: 'test',       component: TestPageComponent },
   { path: 'members',    component: MemberListComponent, canActivate: [AuthGuard] },
-  // { path: 'herodash',   component: HeroDashComponent, canActivate: [AuthGuard] },
-  // { path: 'herolist',   component: HeroListComponent, canActivate: [AuthGuard] },
-  // { path: 'hero/:id',   component: HeroDetailComponent, canActivate: [AuthGuard] },
   { path: 'settings',   component: SettingsComponent },
   { path: 'messages',   component: MessagesComponent },
   { path: 'contact',    component: ContactComponent },

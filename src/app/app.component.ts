@@ -10,12 +10,10 @@ import {ToasterModule, ToasterService} from 'angular2-toaster';
 export class AppComponent {
 
   constructor(
-      public toasterService: ToasterService
+  	public toasterService: ToasterService
   ){}
 
-    popToast() {
-        this.toasterService.pop('success', 'Args Title', 'Args Body');
-    }
-
-
+  popToast() {
+  	this.toasterService.pop('success', 'Args Title', 'Args Body');
+  }
 }

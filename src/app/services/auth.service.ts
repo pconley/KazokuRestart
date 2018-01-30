@@ -5,19 +5,34 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 
+import { ProfileService } from './profile.service'
+
 @Injectable()
 export class AuthService {
   private user: Observable<firebase.User>;
   private userDetails: firebase.User = null;
 
-  constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
+  public profile$: Observable<any>;
+  public profile: any;
+
+  constructor(
+    private _firebaseAuth: AngularFireAuth, 
+    private router: Router,
+    private profileService: ProfileService
+  ) {
       this.user = _firebaseAuth.authState;
       this.user.subscribe(
         (user) => {
-          console.log("*** auth service constructor. user...",user);
+          // console.log("*** auth service constructor. user...",user);
           if (user) {
             this.userDetails = user;
-            console.log(this.userDetails);
+            var email = this.userDetails.email;
+            console.log("*** auth service: user email = ",email);
+            this.profile$ = this.profileService.get(email);
+            this.profile$.subscribe((profile) => {
+              console.log("*** profile...",profile);
+              this.profile = profile;
+            });
           } else {
             this.userDetails = null;
           }
@@ -71,6 +86,7 @@ export class AuthService {
 
   logout() {
     console.log("*** logout");
+    this.profile$ = null;
     this._firebaseAuth.auth.signOut()
     .then((res) => this.router.navigate(['/']));
   }
