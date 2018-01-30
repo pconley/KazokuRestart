@@ -1,6 +1,17 @@
-# Heroes
+# Kazoku
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.4.
+
+It is a restart of the Kazoku family tree project in Jan 2018.  Upgrading to the latest and greatest
+libs and techniquest by restarting with the Heroes tutorial... and porting over the previous angular
+client code (in progress).
+
+## Techonologies ##
+
+-- Angular5 and Firestore
+-- dropped Auth0 in favor of native Firestore Authentication
+-- moved off the classic FS database to the new FireSTORE
+-- dropped Material Design for straight up Bootstrap
 
 ## Quick Commands
 ```
